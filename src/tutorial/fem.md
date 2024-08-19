@@ -125,23 +125,65 @@ the description in the previous section. You can follow along by browsing
 `ex1.cpp` in your VS Code browser window. In the settings of this tutorial, the
 visualization will automatically update in the GLVis browser window.
 
-The computational mesh is provided as input (option `-m`), it could be 3D, 2D,
-surface, hex/tet, etc. The following code
-(lines [120-137](https://github.com/mfem/mfem/blob/master/examples/ex1.cpp#L120-L137))
-loads the mesh from the given file, `mesh_file`; creates the corresponding
-MFEM object `mesh` of class `Mesh`; and refines the mesh uniformly to about
-50,000 elements. You can easily modify the refinement by changing the definition of `ref_levels`.
+The computational mesh is provided as input (option `-m`) that could be 3D, 2D,
+surface, hex/tet, etc. (It defaults to `star.mesh` in line
+[77](https://github.com/mfem/mfem/blob/master/examples/ex1.cpp#L77).) The code in
+lines [120-124](https://github.com/mfem/mfem/blob/master/examples/ex1.cpp#L120-L124)
+loads the mesh from the given file, `mesh_file` and creates the corresponding MFEM
+object `mesh` of class `Mesh`.
 
 ```c++
 Mesh mesh(mesh_file, 1, 1);
 int dim = mesh.Dimension();
+```
 
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
+</div>
+<div class="panel-body">
+Specify a couple different meshes with `-m` to see how the image rendered
+by GLVis changes. Run
+
+```
+./ex1 -m ../data/l-shape.mesh
+./ex1 -m ../data/square-disc.mesh 
+```
+</div>
+</div>
+
+The following code (lines 
+[126-137](https://github.com/mfem/mfem/blob/master/examples/ex1.cpp#L126-L137))
+refines the mesh uniformly to about 50,000 elements. You can easily modify the
+refinement by changing the definition of `ref_levels`.
+
+
+```c++
 int ref_levels = (int)floor(log(50000./mesh.GetNE())/log(2.)/dim);
 for (int l = 0; l < ref_levels; l++)
 {
    mesh.UniformRefinement();
 }
 ```
+
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
+</div>
+<div class="panel-body">
+To see how refinement improves the mesh, either comment out the 5 lines above in
+`ex1.cpp` or reduce `50000.` to `50.` so that the definition for `ref_levels` is
+
+```c++
+int ref_levels = (int)floor(log(50./mesh.GetNE())/log(2.)/dim);
+```
+Then, re-compile and re-run.
+```console
+make ex1
+./ex1
+```
+</div>
+</div>
 
 In the next section we create the finite element space, i.e., specify the finite
 element basis functions $\varphi_j$ on the mesh. This involves the MFEM classes
@@ -161,6 +203,23 @@ cout << "Number of finite element unknowns: " << fespace.GetTrueVSize() << endl;
 
 The printed number of finite element unknowns (typically) corresponds to the
 size of the linear system $n$ from the previous section.
+
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
+</div>
+<div class="panel-body">
+While working with a version of `ex1` using reduced or no mesh refinement, alter
+the value of `order` to see how the solution changes. `order` defaults to 1,
+so compare the default output to using `-o 2`. Compare the output of `./ex1` and
+`./ex1 -o 2`, and then try again with a different mesh:
+
+```
+./ex1 ../data/l-shape.mesh
+./ex1 -o 2 ../data/l-shape.mesh
+```
+</div>
+</div>
 
 The finite element degrees of freedom that are on the domain boundary are then
 extracted in lines
@@ -490,6 +549,18 @@ Some of the more useful key commands and mouse functions are:
 
 Note that you may need to press <kbd>fn</kbd> and/or <kbd>Ctrl</kbd> to escape some
 of the function keys.
+
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
+</div>
+<div class="panel-body">
+After running `.ex1` or `.ex1p`, experiment with the key command <kbd>m</kbd> in the GLVis
+window to change the appearance of the mesh. Use <kbd>i</kbd> to make a cut through the
+visual and <kbd>y</kbd> to change the position of the cutting plane.
+</div>
+</div>
+
 
 For more details, see the full list of
 [key commands](https://github.com/GLVis/glvis/blob/master/README.md#key-commands) and
