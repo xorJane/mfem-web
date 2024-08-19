@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>MFEM - Finite Element Discretization Library</title>
+
+        <link href="../css/bootstrap-mfem.min.css" rel="stylesheet">
+        <link href="../css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="../css/highlight.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NS5XV5TFM6"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NS5XV5TFM6');
+        </script>
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://mfem.org">MFEM</a>
+        </div>
+
+        <script>var base_url = '..';</script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../features/">Features</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../examples/">Example Codes</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../electromagnetics/">Electromagnetics</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../fluids/">Fluid Dynamics</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../meshing-miniapps/">Meshing</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../nurbs/">NURBS Discretization</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../autodiff/">Automatic Differentiation</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../tools/">Tools</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../toys/">Toys</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown active">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../getting-started/">Getting Started</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="../howto/howto-index/">HowTo Articles</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../fem/">Finite Elements</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="../performance/">Performance</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="../gpu-support/">GPU Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../mesh-formats/">Mesh Formats</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="../dox/">Doxygen</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../about/">About</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../search/">🔎 Search...</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="../news/">News</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../videos/">Videos</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../seminar/">Seminar</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="../workshop/">Workshop</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="../tutorial/">Tutorial</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../gallery/">Gallery</a>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="../download/">Download</a>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li>
+                    <a href="https://github.com/mfem/mfem/">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            <div class="col-md-3 visible-xs visible-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#building-mfem">Building MFEM</a></li>
+        
+            <li><a href="#instructions">Instructions</a></li>
+        
+            <li><a href="#serial-version-of-mfem-and-glvis">Serial version of MFEM and GLVis</a></li>
+        
+            <li><a href="#parallel-mpi-version-of-mfem">Parallel MPI version of MFEM</a></li>
+        
+            <li><a href="#cuda-version-of-mfem">CUDA version of MFEM</a></li>
+        
+            <li><a href="#hip-version-of-mfem">HIP version of MFEM</a></li>
+        
+            <li><a href="#installing-mfem-with-spack">Installing MFEM with Spack</a></li>
+        
+    
+    
+	
+	
+           <hr style="background-color:white; height:20px; margin-left:-1px;  margin-right:-1px; margin-top:15px; margin-bottom:10px " />
+           <li><a href="../getting-started/"><i class="fa fa-chevron-circle-left"></i> Back to Getting Started</a> </li>
+        
+	
+	
+    
+    </ul>
+</div>
+
+<!-- Developer notes:
+  See the MkDocs documentation in https://www.mkdocs.org/dev-guide/themes/#page
+  and the Jinja2 template API in https://tedboy.github.io/jinja2/index.html
+--></div> <!-- toc on top on mobile -->
+            <div class="col-md-9" role="main">
+
+<h1 id="building-mfem">Building MFEM</h1>
+<p>A simple tutorial on how to build and run the serial and parallel versions of
+MFEM together with GLVis. For more details, see the
+<a href="https://raw.githubusercontent.com/mfem/mfem/master/INSTALL">INSTALL</a> file and
+<code>make help</code>.</p>
+<p>In addition to the native build system described below, MFEM packages are
+also available in the following package managers:</p>
+<ul>
+<li><a href="https://brew.sh/">Homebrew</a></li>
+<li><a href="https://github.com/spack/spack">Spack</a></li>
+<li><a href="https://openhpc.community/downloads">OpenHPC</a></li>
+</ul>
+<p>MFEM can also be installed as part of</p>
+<ul>
+<li><a href="https://xsdk.info">xSDK</a></li>
+<li><a href="https://e4s-project.github.io">E4S</a></li>
+<li><a href="https://scidac5-fastmath.lbl.gov">FASTMath</a></li>
+<li><a href="https://software.llnl.gov/radiuss">RADIUSS</a></li>
+<li><a href="https://ceed.exascaleproject.org/software">CEED</a></li>
+</ul>
+<p>A pre-built version of MFEM is also available in a container form, see our
+<a href="../tutorial/">AWS tutorial</a> and the
+<a href="https://github.com/mfem/containers">mfem/containers</a> repo.</p>
+<h2 id="instructions">Instructions</h2>
+<p>Download MFEM and GLVis</p>
+<ul>
+<li><a href="https://mfem.org">https://mfem.org</a></li>
+<li><a href="https://glvis.org">https://glvis.org</a></li>
+</ul>
+<p>Below we assume that we are working with versions <code>mfem-4.5</code> and <code>glvis-4.2</code>.</p>
+<h2 id="serial-version-of-mfem-and-glvis">Serial version of MFEM and GLVis</h2>
+<p>Put everything in the same directory:</p>
+<pre><code class="sh">~&gt; ls
+glvis-4.2.tgz   mfem-4.5.tgz
+</code></pre>
+
+<p>Build the serial version of MFEM:</p>
+<pre><code class="sh">~&gt; tar -zxvf mfem-4.5.tgz
+~&gt; cd mfem-4.5
+~/mfem-4.5&gt; make serial -j
+~/mfem-4.5&gt; cd ..
+</code></pre>
+
+<p>Build GLVis:</p>
+<pre><code class="sh">~&gt; tar -zxvf glvis-4.2.tgz
+~&gt; cd glvis-4.2
+~/glvis-4.2&gt; make MFEM_DIR=../mfem-4.5 -j
+~/glvis-4.2&gt; cd ..
+</code></pre>
+
+<p>That's it! The MFEM library can be found in <code>mfem-4.5/libmfem.a</code>, while the
+<code>glvis</code> executable will be in the <code>glvis-4.2</code> directory.</p>
+<p>Note: as of version 4.0, GLVis has additional dependencies that need to be installed
+first, see its building <a href="https://glvis.org/building/">documentation</a>.</p>
+<p>To start a GLVis server, open a <strong>new terminal</strong> and type</p>
+<pre><code class="sh">~&gt; cd glvis-4.2
+~/glvis-4.2&gt; ./glvis
+</code></pre>
+
+<p>The serial examples can be built with:</p>
+<pre><code class="sh">~&gt; cd mfem-4.5/examples
+~/mfem-4.5/examples&gt; make -j
+</code></pre>
+
+<p>All serial examples and miniapps can be built with:</p>
+<pre><code class="sh">~&gt; cd mfem-4.5
+~/mfem-4.5&gt; make all -j
+</code></pre>
+
+<h2 id="parallel-mpi-version-of-mfem">Parallel MPI version of MFEM</h2>
+<p>Download <em>hypre</em> and METIS from</p>
+<ul>
+<li><a href="https://github.com/hypre-space/hypre/tags">https://github.com/hypre-space/hypre/tags</a></li>
+<li><a href="https://github.com/mfem/tpls">https://github.com/mfem/tpls</a></li>
+</ul>
+<p>Note: We recommend MFEM's mirror of <code>metis-4.0.3</code> and <code>metis-5.1.0</code> above because the
+<a href="http://glaros.dtc.umn.edu/gkhome/metis/metis/overview">METIS webpage</a>,
+is often down and we don't support yet the new
+<a href="https://github.com/KarypisLab/METIS">GitHub repo</a>.</p>
+<p>Below we assume that we are working with <code>hypre-2.26.0</code> and <a href="https://github.com/mfem/tpls/raw/gh-pages/metis-4.0.3.tar.gz">metis-4.0.3</a>
+(see <a href="#parallel-build-using-metis-5">below</a> for METIS version 5 and later). We also assume that the serial version
+of MFEM and GLVis have been built as described above.</p>
+<p>Put everything in the same directory:</p>
+<pre><code class="sh">~&gt; ls
+glvis-4.2/  hypre-2.26.0.tar.gz   metis-4.0.3.tar.gz   mfem-4.5/
+</code></pre>
+
+<p>Build hypre:</p>
+<pre><code class="sh">~&gt; tar -zxvf hypre-2.26.0.tar.gz
+~&gt; cd hypre-2.26.0/src/
+~/hypre-2.26.0/src&gt; ./configure --disable-fortran
+~/hypre-2.26.0/src&gt; make -j
+~/hypre-2.26.0/src&gt; cd ../..
+~&gt; ln -s hypre-2.26.0 hypre
+</code></pre>
+
+<p>Build METIS:</p>
+<pre><code class="sh">~&gt; tar -zxvf metis-4.0.3.tar.gz
+~&gt; cd metis-4.0.3
+~/metis-4.0.3&gt; make OPTFLAGS=-Wno-error=implicit-function-declaration
+~/metis-4.0.3&gt; cd ..
+~&gt; ln -s metis-4.0.3 metis-4.0
+</code></pre>
+
+<p>(If you are using METIS 5, see the instructions
+<a href="#parallel-build-using-metis-5">below</a>.)</p>
+<p>Build the parallel version of MFEM:</p>
+<pre><code class="sh">~&gt; cd mfem-4.5
+~/mfem-4.5&gt; make parallel -j
+~/mfem-4.5&gt; cd ..
+</code></pre>
+
+<p>Note that if hypre or METIS are in different locations, or you have different
+versions of these libraries, you will need to update the corresponding paths in
+the
+<a href="https://raw.githubusercontent.com/mfem/mfem/master/config/defaults.mk"><code>config/defaults.mk</code></a>
+file, or create you own <code>config/user.mk</code>, as described in the
+<a href="https://raw.githubusercontent.com/mfem/mfem/master/INSTALL"><code>INSTALL</code></a> file.</p>
+<p>The parallel examples can be built with:</p>
+<pre><code class="sh">~&gt; cd mfem-4.5/examples
+~/mfem-4.5/examples&gt; make -j
+</code></pre>
+
+<p>The serial examples can also be built with the parallel version of the library,
+e.g.</p>
+<pre><code class="sh">~/mfem-4.5/examples&gt; make ex1 ex2
+</code></pre>
+
+<p>All parallel examples and miniapps can be built with:</p>
+<pre><code class="sh">~&gt; cd mfem-4.5
+~/mfem-4.5&gt; make all -j
+</code></pre>
+
+<p>One can also use the parallel library to optionally (re-)build GLVis:</p>
+<pre><code class="sh">~&gt; cd glvis-4.2
+~/glvis-4.2&gt; make clean
+~/glvis-4.2&gt; make MFEM_DIR=../mfem-4.5 -j
+</code></pre>
+
+<p>This, however, is generally <em>not recommended</em>, since the additional MPI thread
+can interfere with the other GLVis threads.</p>
+<h3 id="parallel-build-using-metis-5">Parallel build using METIS 5</h3>
+<p>Build METIS 5:</p>
+<pre><code class="sh">~&gt; tar zvxf metis-5.1.0.tar.gz
+~&gt; cd metis-5.1.0
+~/metis-5.1.0&gt; make BUILDDIR=lib config
+~/metis-5.1.0&gt; make BUILDDIR=lib
+~/metis-5.1.0&gt; cp lib/libmetis/libmetis.a lib
+</code></pre>
+
+<p>Build the parallel version of MFEM, setting the options <code>MFEM_USE_METIS_5</code> and
+<code>METIS_DIR</code>, e.g.:</p>
+<pre><code class="sh">~&gt; cd mfem-4.5
+~/mfem-4.5&gt; make parallel -j MFEM_USE_METIS_5=YES METIS_DIR=@MFEM_DIR@/../metis-5.1.0
+</code></pre>
+
+<h2 id="cuda-version-of-mfem">CUDA version of MFEM</h2>
+<p>To build the CUDA version of MFEM, one needs to specify the <a href="https://developer.nvidia.com/cuda-gpus#compute">CUDA compute capability</a>, with the <code>CUDA_ARCH</code> flag. In the examples below we use <code>CUDA_ARCH=sm_70</code> to build the MFEM serial and parallel versions for compute capability 7.0 (V100).</p>
+<p>Build the serial CUDA version of MFEM:</p>
+<pre><code class="sh">~/mfem&gt; make cuda CUDA_ARCH=sm_70 -j
+</code></pre>
+
+<p>Build the parallel CUDA version of MFEM:</p>
+<pre><code class="sh">~/mfem&gt; make pcuda CUDA_ARCH=sm_70 -j
+</code></pre>
+
+<p>To use hypre with CUDA support in MFEM, follow the instructions <a href="#parallel-mpi-version-of-mfem">above</a> but configure it with the following command, specifying the CUDA compute capability:</p>
+<pre><code class="sh">~/hypre-2.26.0/src&gt; ./configure --with-cuda --with-gpu-arch=&quot;70&quot; --disable-fortran
+</code></pre>
+
+<h2 id="hip-version-of-mfem">HIP version of MFEM</h2>
+<p>To build the HIP version of MFEM, one needs to specify the <a href="https://llvm.org/docs/AMDGPUUsage.html#processors">HIP architecture</a>, with the <code>HIP_ARCH</code> flag. In the examples below we use <code>HIP_ARCH=gfx908</code> to build the MFEM serial and parallel versions for <code>gfx908</code> (MI100).</p>
+<p>Build the serial HIP version of MFEM:</p>
+<pre><code class="sh">~/mfem&gt; make hip HIP_ARCH=gfx908 -j
+</code></pre>
+
+<p>Build the parallel HIP version of MFEM:</p>
+<pre><code class="sh">~/mfem&gt; make phip HIP_ARCH=gfx908 -j
+</code></pre>
+
+<p>To use hypre with HIP support in MFEM, follow the instructions <a href="#parallel-mpi-version-of-mfem">above</a> but configure it with the following command, specifying the HIP architecture:</p>
+<pre><code class="sh">~/hypre-2.26.0/src&gt; ./configure --with-hip --with-gpu-arch=&quot;gfx908&quot; --disable-fortran
+</code></pre>
+
+<h2 id="installing-mfem-with-spack">Installing MFEM with Spack</h2>
+<p>If Spack is already available on your system and is visible in your <code>PATH</code>, you can install the MFEM software simply with:</p>
+<pre><code class="sh">spack install mfem
+</code></pre>
+
+<p>To enable package testing during the build process, use instead:</p>
+<pre><code class="sh">spack install -v --test=all mfem
+</code></pre>
+
+<p>If you don't have Spack, you can download it and install MFEM with the following commands:</p>
+<pre><code class="sh">git clone https://github.com/spack/spack.git
+cd spack
+./bin/spack install -v mfem
+</code></pre></div>
+            <div class="col-md-3 hidden-xs hidden-sm"><div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#building-mfem">Building MFEM</a></li>
+        
+            <li><a href="#instructions">Instructions</a></li>
+        
+            <li><a href="#serial-version-of-mfem-and-glvis">Serial version of MFEM and GLVis</a></li>
+        
+            <li><a href="#parallel-mpi-version-of-mfem">Parallel MPI version of MFEM</a></li>
+        
+            <li><a href="#cuda-version-of-mfem">CUDA version of MFEM</a></li>
+        
+            <li><a href="#hip-version-of-mfem">HIP version of MFEM</a></li>
+        
+            <li><a href="#installing-mfem-with-spack">Installing MFEM with Spack</a></li>
+        
+    
+    
+	
+	
+           <hr style="background-color:white; height:20px; margin-left:-1px;  margin-right:-1px; margin-top:15px; margin-bottom:10px " />
+           <li><a href="../getting-started/"><i class="fa fa-chevron-circle-left"></i> Back to Getting Started</a> </li>
+        
+	
+	
+    
+    </ul>
+</div>
+
+<!-- Developer notes:
+  See the MkDocs documentation in https://www.mkdocs.org/dev-guide/themes/#page
+  and the Jinja2 template API in https://tedboy.github.io/jinja2/index.html
+--></div>
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignright">LLNL-WEB-676715</p>
+              <p class="text-muted alignleft">
+                  Developed by the <a href="/about/">MFEM team</a> at
+                  <a href="https://computing.llnl.gov/casc/">CASC</a>,
+                  <a href="https://www.llnl.gov/">LLNL</a></p>
+           </div>
+        </footer>
+
+        <script src="../js/jquery-1.10.2.min.js"></script>
+        <script src="../js/bootstrap-3.0.3.min.js"></script>
+        <script src="../js/highlight.pack.js"></script>
+        <script src="../js/base.js"></script>
+        <script src="../js/retina.min.js"></script>
+        <script data-main="../mkdocs/js/search.js" src="../mkdocs/js/require.js"></script>
+        <script src="../search/main.js"></script>
+    </body>
+</html>

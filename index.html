@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="/img/favicon.ico">
+        <meta name="keywords" content="Finite Element Library,Finite Element Code,Finite Element Method Library,Finite Element Method Code,Finite Element C++,Finite Element Method C++,Finite Element Library C++,Finite Element Code C++,FEM Code,FEM Library,FEM C++">
+        <meta name="google-site-verification" content="45K56TawSdzbgy-uDtfJdYwp7zaVdL3fIAGYt869wwU" />
+<!--	<title></title>  -->
+        <title>MFEM - Finite Element Discretization Library</title>
+
+        <link href="./css/bootstrap-mfem.min.css" rel="stylesheet">
+        <link href="./css/font-awesome-4.0.3.css" rel="stylesheet">
+        <link href="./css/highlight.css" rel="stylesheet">
+        <link href="./css/base.css" rel="stylesheet">
+
+        <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+        <![endif]-->
+
+	<!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-NS5XV5TFM6"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NS5XV5TFM6');
+        </script>
+
+        
+    </head>
+
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container">
+
+        <!-- Collapsed navigation -->
+        <div class="navbar-header">
+            <!-- Expander button -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Main title -->
+            <a class="navbar-brand" href="https://mfem.org">MFEM</a>
+        </div>
+
+        <script>var base_url = '.';</script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+
+        <!-- Expanded navigation -->
+        <div class="navbar-collapse collapse">
+            <!-- Main navigation -->
+            <ul class="nav navbar-nav">
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="features/">Features</a>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Examples <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="examples/">Example Codes</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="electromagnetics/">Electromagnetics</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="fluids/">Fluid Dynamics</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="meshing-miniapps/">Meshing</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="nurbs/">NURBS Discretization</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="autodiff/">Automatic Differentiation</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="tools/">Tools</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="toys/">Toys</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Documentation <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="getting-started/">Getting Started</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="howto/howto-index/">HowTo Articles</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="fem/">Finite Elements</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="performance/">Performance</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="gpu-support/">GPU Support</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="mesh-formats/">Mesh Formats</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="dox/">Doxygen</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="publications/">Publications</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="about/">About</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="search/">🔎 Search...</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Community <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                    
+                        
+                            <li >
+                                 <a href="news/">News</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="videos/">Videos</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="seminar/">Seminar</a>
+                            </li>
+                        
+                    
+                        
+                            <li >
+                                 <a href="workshop/">Workshop</a>
+                            </li>
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                    
+                        
+                            <li >
+                                 <a href="tutorial/">Tutorial</a>
+                            </li>
+                        
+                    
+                    </ul>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="gallery/">Gallery</a>
+                </li>
+            
+            
+            
+            
+            
+                <li >
+                    <!-- Replace "nav_item.url|url" with "nav_item.url" for older mkdocs (before 1.0) -->
+                    <a href="download/">Download</a>
+                </li>
+            
+            
+            
+            </ul>
+
+            <!-- Search, Navigation and Repo links -->
+            <ul class="nav navbar-nav navbar-right">
+                
+                
+                <li>
+                    <a href="https://github.com/mfem/mfem/">
+                        
+                            <i class="fa fa-github-square"></i>
+                        
+                        GitHub
+                    </a>
+                </li>
+                
+            </ul>
+        </div>
+    </div>
+</div>
+
+        
+        <div class="container">
+            
+            
+
+<div class="col-md-6">
+<div class="carousel slide" data-ride="carousel" id="myCarousel" style="margin-top:-10px;margin-bottom:0px;height:360px;">
+<p><!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+    <li data-target="#myCarousel" data-slide-to="1"></li>
+    <li data-target="#myCarousel" data-slide-to="2"></li>
+    <li data-target="#myCarousel" data-slide-to="3"></li>
+    <li data-target="#myCarousel" data-slide-to="4"></li>
+    <li data-target="#myCarousel" data-slide-to="5"></li>
+    <li data-target="#myCarousel" data-slide-to="6"></li>
+    <li data-target="#myCarousel" data-slide-to="7"></li>
+  </ol></p>
+<p><!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <a href="gallery/"><img class="d-block w-100" src="img/logo-300.png" ></a>
+    </div>
+    <div class="item">
+      <a href="gallery/#camier"><img class="d-block w-100" width="260" height="160" src="img/gallery/workshop23/lf_vortex_rings.png"></a>
+      <div class="carousel-caption d-none" style="margin-top:-15px;">
+        2023 Visualization Contest Winner John Camier
+      </div>
+    </div>
+    <div class="item">
+      <a href="gallery/#ebrahimi"><img class="d-block w-100" width="450" height="260" src="img/gallery/workshop23/excavator.png"></a>
+      <div class="carousel-caption d-none" style="margin-top:-15px;">
+        2023 Visualization Contest Winner Mehran Ebrahimi
+      </div>
+    </div>
+    <div class="item">
+      <a href="gallery/#nstx"><img class="d-block w-100" width="250" height="250" src="img/carousel/tokamak.png"></a>
+      <div class="carousel-caption d-none" style="margin-top:-15px;">
+        Electromagnetic wave propagation in the <a href="https://nstx-u.pppl.gov/overview">NSTX-U</a> tokamak
+      </div>
+    </div>
+    <div class="item">
+      <a href="gallery/#blast"><img class="d-block w-100" width="250" height="250" src="img/carousel/icf.jpg"></a>
+      <div class="carousel-caption d-none" style="margin-top:-15px;">
+        High-order multi-material hydrodynamics in the <a href="https://www.llnl.gov/casc/blast">BLAST</a> code
+      </div>
+    </div>
+    <div class="item">
+      <a href="gallery/#drone"><img class="d-block w-100" style="width:90%; margin-top:50px;" src="img/carousel/drone.png"></a>
+      <div class="carousel-caption d-none" style="margin-top:-10px;">
+        Topology optimization of a drone body using <br> LLNL's <a href="https://str.llnl.gov/2018-03/tortorelli">LiDO code</a>, based on MFEM
+      </div>
+    </div>
+    <div class="item">
+      <a href="gallery/"><img class="d-block w-100" width="280" height="280" src="img/carousel/amr.png"></a>
+      <div class="carousel-caption d-none" style="margin-top:-15px;">
+        Non-conforming adaptive mesh refinement with parallel load-balancing
+      </div>
+    </div>
+  </div></p>
+<p><!-- Left and right controls -->
+  <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="right carousel-control" href="#myCarousel" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+    <span class="sr-only">Next</span>
+  </a></p>
+</div>
+<p>MFEM is a <em>free</em>, <em>lightweight</em>, <em>scalable</em> C++ library for finite element methods.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li>Arbitrary high-order finite element <a href="features/#wide-range-of-mesh-types">meshes</a>
+and <a href="features/#higher-order-finite-element-spaces">spaces</a>.</li>
+<li><a href="features/#flexible-discretization">Wide variety</a> of finite element discretization approaches.</li>
+<li>Conforming and nonconforming <a href="examples/?amr">adaptive mesh refinement</a>.</li>
+<li>Scalable from laptops to <a href="features#parallel-scalable-and-gpu-ready">GPU-accelerated</a> supercomputers.</li>
+<li>... and <a href="features/">many more</a>.</li>
+</ul>
+<p>MFEM is used in many projects, including <a href="https://www.llnl.gov/casc/blast">BLAST</a>, <a href="https://github.com/llnl/cardioid">Cardioid</a>, <a href="https://github.com/awslabs/palace">Palace</a>, <a href="https://visit.llnl.gov">VisIt</a>, <a href="https://www.rfscidac4.org/">RF-SciDAC</a>, <a href="https://scidac5-fastmath.lbl.gov/">FASTMath</a>, <a href="https://xsdk.info/">xSDK</a>, and <a href="https://ceed.exascaleproject.org">CEED</a> in the <a href="https://exascaleproject.org">Exascale Computing Project</a>.</p>
+<p>We host an annual <a href="workshop/">workshop</a> and <a href="seminar/">FEM@LLNL seminar series</a> series.</p>
+<p>See also our <a href="gallery/">Gallery</a>, <a href="publications/">Publications</a>, <a href="videos/">Videos</a> and <a href="news/">News</a> pages.</p>
+</div>
+<div class="col-md-6 news-table">
+<h2 id="news">News</h2>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Oct 22, 2024</td>
+<td>2024 <a href="workshop/">MFEM Community Workshop</a>.</td>
+</tr>
+<tr>
+<td>Jun 5, 2024</td>
+<td><a href="https://hpcic.llnl.gov/tutorials/2024-hpc-tutorials">Register</a> for MFEM <a href="tutorial/">tutorial</a> on Aug 22.</td>
+</tr>
+<tr>
+<td>May 7, 2024</td>
+<td>Version 4.7 <a href="https://github.com/mfem/mfem/blob/v4.7/CHANGELOG">released</a>.</td>
+</tr>
+<tr>
+<td>May 2, 2024</td>
+<td>New MFEM <a href="https://arxiv.org/abs/2402.15940">paper</a> in IJHPCA.</td>
+</tr>
+<tr>
+<td>Feb 22, 2023</td>
+<td>AWS releases <a href="https://aws.amazon.com/blogs/quantum-computing/aws-releases-open-source-software-palace-for-cloud-based-electromagnetics-simulations-of-quantum-computing-hardware/">Palace</a> based on MFEM.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="latest-release">Latest Release</h2>
+<p><a href="https://github.com/mfem/mfem/blob/v4.7/CHANGELOG">New features</a>
+┊ <a href="examples/">Examples</a>
+┊ <a href="dox/">Code documentation</a>
+┊ <a href="https://github.com/mfem/mfem">Sources</a></p>
+<p><a href="https://bit.ly/mfem-4-7"><button type="button" class="btn btn-success">
+<strong>Download mfem-4.7.tgz</strong>
+</button></a></p>
+<p><a href="download/">Older releases</a> ┊ <a href="https://github.com/mfem/PyMFEM">Python wrapper</a> ┊
+<a href="https://mybinder.org/v2/gh/mfem/mfem/master?filepath=examples%2Fjupyter%2Fex.ipynb" title="C++ Jupiter notebook"><img alt="Launch Binder" src="https://mybinder.org/badge_logo.svg" style="display:inline;margin:0" /></a></p>
+<h2 id="documentation">Documentation</h2>
+<p><a href="building/">Building MFEM</a>
+┊ <a href="getting-started/">Getting Started</a>
+┊ <a href="fem/">Finite Elements</a>
+┊ <a href="performance/">Performance</a></p>
+<p>New users should start by examining the <a href="examples/">example codes</a>.</p>
+<p>We also recommend using <a href="https://glvis.org">GLVis</a> for visualization.</p>
+<h2 id="contact">Contact</h2>
+<p>Use the GitHub <a href="https://github.com/mfem/mfem/issues">issue tracker</a>
+to report <a href="https://github.com/mfem/mfem/issues/new?labels=bug">bugs</a>
+or post <a href="https://github.com/mfem/mfem/issues/new?labels=question">questions</a>
+or <a href="https://github.com/mfem/mfem/issues/new?labels=comment">comments</a>.
+See&nbsp;the <a href="about/">About</a> page for citation information.</p>
+</div>
+<div class="col-md-12 bottom"></div>
+
+            
+        </div>
+        
+
+        <footer class="footer">
+           <div class="container">
+              <p class="text-muted alignright">LLNL-WEB-676715</p>
+              <p class="text-muted alignleft">
+                  Developed by the <a href="/about/">MFEM team</a> at
+                  <a href="https://computing.llnl.gov/casc/">CASC</a>,
+                  <a href="https://www.llnl.gov/">LLNL</a></p>
+           </div>
+        </footer>
+
+        <script src="./js/jquery-1.10.2.min.js"></script>
+        <script src="./js/bootstrap-3.0.3.min.js"></script>
+        <script src="./js/highlight.pack.js"></script>
+        <script src="./js/base.js"></script>
+        <script src="./js/retina.min.js"></script>
+        <script data-main="./mkdocs/js/search.js" src="./mkdocs/js/require.js"></script>
+        <script src="search/main.js"></script>
+    </body>
+</html>
