@@ -142,13 +142,13 @@ int dim = mesh.Dimension();
 <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
 </div>
 <div class="panel-body">
-Specify a couple different meshes with `-m` to see how the image rendered
+Specify a couple different meshes with <kbd>-m</kbd> to see how the image rendered
 by GLVis changes. Run
 
-```
+<pre>
 ./ex1 -m ../data/l-shape.mesh
 ./ex1 -m ../data/square-disc.mesh 
-```
+</pre>
 </div>
 </div>
 
@@ -172,16 +172,16 @@ for (int l = 0; l < ref_levels; l++)
 </div>
 <div class="panel-body">
 To see how refinement improves the mesh, either comment out the 5 lines above in
-`ex1.cpp` or reduce `50000.` to `50.` so that the definition for `ref_levels` is
+<kbd>ex1.cpp</kbd> or reduce 50000 to 50 so that the definition for <kbd>ref_levels</kbd> is
 
-```c++
+<pre>
 int ref_levels = (int)floor(log(50./mesh.GetNE())/log(2.)/dim);
-```
+</pre>
 Then, re-compile and re-run.
-```console
+<pre>
 make ex1
 ./ex1
-```
+</pre>
 </div>
 </div>
 
@@ -209,15 +209,15 @@ size of the linear system $n$ from the previous section.
 <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
 </div>
 <div class="panel-body">
-While working with a version of `ex1` using reduced or no mesh refinement, alter
-the value of `order` to see how the solution changes. `order` defaults to 1,
-so compare the default output to using `-o 2`. Compare the output of `./ex1` and
-`./ex1 -o 2`, and then try again with a different mesh:
+While working with a version of <kbd>ex1</kbd> using reduced or no mesh refinement, alter
+the value of <kbd>order</kbd> to see how the solution changes. <kbd>order</kbd> defaults to 1,
+so compare the default output to using <kbd>-o 2</kbd>. Compare the output of <kbd>./ex1</kbd> and
+<kbd>./ex1 -o 2</kbd>, and then try again with a different mesh:
 
-```
+<pre>
 ./ex1 ../data/l-shape.mesh
 ./ex1 -o 2 ../data/l-shape.mesh
-```
+</pre>
 </div>
 </div>
 
@@ -555,7 +555,7 @@ of the function keys.
 <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
 </div>
 <div class="panel-body">
-After running `.ex1` or `.ex1p`, experiment with the key command <kbd>m</kbd> in the GLVis
+After running <kbd>.ex1</kbd> or <kbd>.ex1p</kbd>, experiment with the key command <kbd>m</kbd> in the GLVis
 window to change the appearance of the mesh. Use <kbd>i</kbd> to make a cut through the
 visual and <kbd>y</kbd> to change the position of the cutting plane.
 </div>
