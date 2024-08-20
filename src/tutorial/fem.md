@@ -137,21 +137,6 @@ Mesh mesh(mesh_file, 1, 1);
 int dim = mesh.Dimension();
 ```
 
-<div class="panel panel-success">
-<div class="panel-heading">
-<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
-</div>
-<div class="panel-body">
-Specify a couple different meshes with <kbd>-m</kbd> to see how the image rendered
-by GLVis changes. Run
-
-<pre>
-./ex1 -m ../data/l-shape.mesh
-./ex1 -m ../data/square-disc.mesh 
-</pre>
-</div>
-</div>
-
 The following code (lines 
 [126-137](https://github.com/mfem/mfem/blob/master/examples/ex1.cpp#L126-L137))
 refines the mesh uniformly to about 50,000 elements. You can easily modify the
@@ -165,25 +150,6 @@ for (int l = 0; l < ref_levels; l++)
    mesh.UniformRefinement();
 }
 ```
-
-<div class="panel panel-success">
-<div class="panel-heading">
-<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
-</div>
-<div class="panel-body">
-To see how refinement improves the mesh, either comment out the 5 lines above in
-<kbd>ex1.cpp</kbd> or reduce 50000 to 50 so that the definition for <kbd>ref_levels</kbd> is
-
-<pre>
-int ref_levels = (int)floor(log(50./mesh.GetNE())/log(2.)/dim);
-</pre>
-Then, re-compile and re-run.
-<pre>
-make ex1
-./ex1
-</pre>
-</div>
-</div>
 
 In the next section we create the finite element space, i.e., specify the finite
 element basis functions $\varphi_j$ on the mesh. This involves the MFEM classes
@@ -203,23 +169,6 @@ cout << "Number of finite element unknowns: " << fespace.GetTrueVSize() << endl;
 
 The printed number of finite element unknowns (typically) corresponds to the
 size of the linear system $n$ from the previous section.
-
-<div class="panel panel-success">
-<div class="panel-heading">
-<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
-</div>
-<div class="panel-body">
-While working with a version of <kbd>ex1</kbd> using reduced or no mesh refinement, alter
-the value of <kbd>order</kbd> to see how the solution changes. <kbd>order</kbd> defaults to 1,
-so compare the default output to using <kbd>-o 2</kbd>. Compare the output of <kbd>./ex1</kbd> and
-<kbd>./ex1 -o 2</kbd>, and then try again with a different mesh:
-
-<pre>
-./ex1 ../data/l-shape.mesh
-./ex1 -o 2 ../data/l-shape.mesh
-</pre>
-</div>
-</div>
 
 The finite element degrees of freedom that are on the domain boundary are then
 extracted in lines
@@ -412,15 +361,23 @@ page.
 
 Both `ex1` and `ex1p` come pre-built in the tutorial environment. You can see a
 number of sample runs at the beginning of their corresponding source files when
-you open them in VS Code.
+you open them in VS Code. To get a feel for how these examples work, you can copy
+and paste some of these runs from the source to the terminal in VS Code. 
 
-To get a feel for how these examples work, you can copy and paste some of these
-runs from the source to the terminal in VS Code. For example try these runs in the
-VS Code terminal.
-
-    ./ex1 -m ../data/escher.mesh
-    ./ex1 -m ../data/l-shape.mesh
-    ./ex1 -m ../data/mobius-strip.mesh
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
+</div>
+<div class="panel-body">
+Specify a couple different meshes with <kbd>-m</kbd>  in the VS Code terminal
+to see how the image rendered by GLVis changes. Run
+<pre>
+./ex1 -m ../data/escher.mesh
+./ex1 -m ../data/l-shape.mesh
+./ex1 -m ../data/mobius-strip.mesh
+</pre>
+</div>
+</div>
 
 ![](img/fem3.png)
 
@@ -447,11 +404,20 @@ the visualization window should be fast.
 </div>
 </div>
 
-Here are some sample parallel runs:
 
-    mpirun -np 16 ex1p
-    mpirun -np 16 ex1p -m ../data/pipe-nurbs.mesh
-    mpirun -np 48 ex1p -m ../data/escher-p2.mesh
+<div class="panel panel-success">
+<div class="panel-heading">
+<h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
+</div>
+<div class="panel-body">
+Now try out some sample parallel runs:
+<pre>
+mpirun -np 16 ex1p
+mpirun -np 16 ex1p -m ../data/pipe-nurbs.mesh
+mpirun -np 48 ex1p -m ../data/escher-p2.mesh
+</pre>
+</div>
+</div>   
 
 <div class="panel panel-danger">
 <div class="panel-heading">
@@ -555,7 +521,7 @@ of the function keys.
 <h3 class="panel-title"><i class="fa fa-info-circle"></i>&nbsp; Try this!</h3>
 </div>
 <div class="panel-body">
-After running <kbd>.ex1</kbd> or <kbd>.ex1p</kbd>, experiment with the key command <kbd>m</kbd> in the GLVis
+After running Example 1, experiment with the key command <kbd>m</kbd> in the GLVis
 window to change the appearance of the mesh. Use <kbd>i</kbd> to make a cut through the
 visual and <kbd>y</kbd> to change the position of the cutting plane.
 </div>
